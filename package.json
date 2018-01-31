@@ -1,12 +1,12 @@
 {
   "name": "battery-percentage-app",
   "version": "1.0.0",
-  "description": "A Electron JS Battery Percentage app",
+  "description": "A Electron JS app that displays the current battery level with the Battery Status API",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "",
+  "repository": "https://github.com/Deng78/Battery-Percentage-App",
   "keywords": ["Battery Percentage","Battery","Electron","Battery Percent","Javascipt"],
   "author": "Deng Neyal",
   "license": "MIT",
