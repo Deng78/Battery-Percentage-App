@@ -2,14 +2,13 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Battery Percentage</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body style="-webkit-app-region: drag">
       <div class="container">
           <div id="batBody">
-            <div id="indicator">     
-            </div>
+            <div id="indicator"></div>
           </div>
           <div class="batEnd">
             <div></div>
@@ -17,7 +16,6 @@
         </div>        
       <h2 id="batteryLevelOutput"></h2>
     
-
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
@@ -26,17 +24,16 @@
       const batteryLevelOutput = document.getElementById('batteryLevelOutput');
       const batteryIndicator = document.getElementById('indicator');
       navigator.getBattery().then(battery => {
-        batteryIndicator.className = battery.charging ? 'charging' : 'notCharging';
-        batteryLevelOutput.innerHTML = `${parseInt(battery.level*100)}%`
-        batteryIndicator.style.width = `${parseInt(battery.level*100)}%`
+        updateBattery();
       
-        battery.addEventListener('chargingchange', function(){
+        battery.addEventListener('chargingchange',() =>{updateBattery()});
+        battery.addEventListener('levelchange', () =>{udateBattery()});
+        
+        function updateBattery(){
           batteryIndicator.className = battery.charging ? 'charging' : 'notCharging';
-        });
-        battery.addEventListener('levelchange', () =>{
-          batteryLevelOutput.innerHTML = `${parseInt(battery.level*100)}%`
-          batteryIndicator.style.width = `${parseInt(battery.level*100)}%`
-        });
+          batteryLevelOutput.innerHTML = `${parseInt(battery.level*100)}%`;
+          batteryIndicator.style.width = `${parseInt(battery.level*100)}%`;
+        }
       });
     </script>
   </body>
