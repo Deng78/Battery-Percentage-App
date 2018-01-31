@@ -1,0 +1,16 @@
+{
+  "name": "battery-percentage-app",
+  "version": "1.0.0",
+  "description": "A Electron JS Battery Percentage app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": ["Battery Percentage","Battery","Electron","Battery Percent","Javascipt"],
+  "author": "Deng Neyal",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "~1.7.8"
+  }
+}

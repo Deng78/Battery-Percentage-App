@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body style="-webkit-app-region: drag">
+      <div class="container">
+          <div id="batBody">
+            <div id="indicator">     
+            </div>
+          </div>
+          <div class="batEnd">
+            <div></div>
+          </div>
+        </div>        
+      <h2 id="batteryLevelOutput"></h2>
+    
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+    <script>
+      const batteryLevelOutput = document.getElementById('batteryLevelOutput');
+      const batteryIndicator = document.getElementById('indicator');
+      navigator.getBattery().then(battery => {
+        batteryIndicator.className = battery.charging ? 'charging' : 'notCharging';
+        batteryLevelOutput.innerHTML = `${parseInt(battery.level*100)}%`
+        batteryIndicator.style.width = `${parseInt(battery.level*100)}%`
+      
+        battery.addEventListener('chargingchange', function(){
+          batteryIndicator.className = battery.charging ? 'charging' : 'notCharging';
+        });
+        battery.addEventListener('levelchange', () =>{
+          batteryLevelOutput.innerHTML = `${parseInt(battery.level*100)}%`
+          batteryIndicator.style.width = `${parseInt(battery.level*100)}%`
+        });
+      });
+    </script>
+  </body>
+</html>
