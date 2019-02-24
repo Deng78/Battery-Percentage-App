@@ -7,7 +7,13 @@
     "start": "electron ."
   },
   "repository": "https://github.com/Deng78/Battery-Percentage-App",
-  "keywords": ["Battery Percentage","Battery","Electron","Battery Percent","Javascipt"],
+  "keywords": [
+    "Battery Percentage",
+    "Battery",
+    "Electron",
+    "Battery Percent",
+    "Javascipt"
+  ],
   "author": "Deng Neyal",
   "license": "MIT",
   "devDependencies": {
