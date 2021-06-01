@@ -27,7 +27,7 @@
         updateBattery();
       
         battery.addEventListener('chargingchange',() =>{updateBattery()});
-        battery.addEventListener('levelchange', () =>{udateBattery()});
+        battery.addEventListener('levelchange', () =>{updateBattery()});
         
         function updateBattery(){
           batteryIndicator.className = battery.charging ? 'charging' : 'notCharging';
